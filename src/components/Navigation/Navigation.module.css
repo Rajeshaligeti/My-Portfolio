@@ -1,0 +1,91 @@
+.nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: -4px;
+  z-index: 40;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  border: 2px solid;
+  transition: all 0.3s;
+}
+
+.light {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(147, 51, 234, 0.05);
+}
+
+.dark {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.2), inset 0 0 30px rgba(139, 92, 246, 0.05);
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navButton {
+  position: relative;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  border-radius: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.activeLightButton {
+  color: rgb(126, 34, 206);
+  background: rgba(147, 51, 234, 0.5);
+}
+
+.activeDarkButton {
+  color: rgb(196, 181, 253);
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.inactiveLightButton {
+  color: rgb(55, 65, 81);
+}
+
+.inactiveLightButton:hover {
+  color: rgb(147, 51, 234);
+  background: rgba(147, 51, 234, 0.5);
+}
+
+.inactiveDarkButton {
+  color: rgb(209, 213, 219);
+}
+
+.inactiveDarkButton:hover {
+  color: rgb(139, 92, 246);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+}
+
+.lightIndicator {
+  background: rgb(147, 51, 234);
+}
+
+.darkIndicator {
+  background: rgb(139, 92, 246);
+}

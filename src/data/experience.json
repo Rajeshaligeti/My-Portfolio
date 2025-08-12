@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "FULL-STACK Intern",
+    "company": "EY GDS",
+    "location": "Remote",
+    "duration": "Dec 2024 - Jan 2025",
+    "type": "Internship",
+    "description": "Engineered MERN stack applications for enterprise clients with focus on performance optimization and user experience enhancement.",
+    "achievements": [
+      "Built scalable MERN applications for enterprise clients",
+      "Optimized application performance by 30%",
+      "Enhanced UI/UX leading to 25% increase in user engagement"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Web Developer",
+    "company": "VaultofCodes",
+    "location": "Remote",
+    "duration": "Sep 2024 - Oct 2024",
+    "type": "Internship",
+    "description": "Developed and deployed functional websites using modern web technologies with integrated email functionality and performance optimization.",
+    "achievements": [
+      "Developed functional site for Editkaro using HTML5, CSS3, React, JavaScript",
+      "Integrated email features using Google Sheets API & Nodemailer",
+      "Improved site traffic by 20% and stability by 50%"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "AI & Cloud Intern",
+    "company": "Edunet Foundation",
+    "location": "Remote",
+    "duration": "Jun 2024 - Jul 2024",
+    "type": "Internship",
+    "description": "Developed AI-powered solutions and machine learning models with focus on healthcare applications and chatbot development.",
+    "achievements": [
+      "Built AI-powered chatbot using IBM WatsonX",
+      "Developed logistic regression ML model for Framingham Heart Study",
+      "Achieved 91.90% accuracy in ML model optimization"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "AI Intern",
+    "company": "IBM SkillsBuild",
+    "location": "Remote",
+    "duration": "Oct 2024 - Nov 2024",
+    "type": "Internship",
+    "description": "Built advanced sentiment analysis tools using modern AI frameworks with batch processing capabilities and data visualization.",
+    "achievements": [
+      "Created Flask-based sentiment analysis tool with LangChain & Ollama",
+      "Enabled batch input sentiment detection with visualizations",
+      "Implemented word cloud generation for sentiment insights"
+    ]
+  }
+]

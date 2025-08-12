@@ -1,0 +1,599 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Prevent initial glitch */
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Enhanced smoothness */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  /* Optimize for animations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Prevent initial glitch */
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Enhanced smoothness */
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Performance optimizations for animations */
+* {
+  will-change: auto;
+}
+
+/* Enhanced smooth animations */
+.smooth-enter {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.smooth-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-exit-active {
+  opacity: 0;
+  transform: translateY(-20px) scale(1.05);
+}
+
+/* Buttery smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+.interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, box-shadow, background-color, border-color;
+}
+
+button:hover,
+a:hover,
+.interactive:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+button:active,
+a:active,
+.interactive:active {
+  transform: translateY(0) translateZ(0);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-element {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scrolling with momentum */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar with enhanced design */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.8), rgba(168, 85, 247, 0.8));
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 1), rgba(168, 85, 247, 1));
+  background-clip: content-box;
+}
+
+/* Enhanced Glassmorphism utilities */
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px
+    rgba(139, 92, 246, 0.1);
+}
+
+/* Shining effect for subheadings */
+@keyframes shine-effect {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shine-text {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine-effect 3s ease-in-out infinite;
+  will-change: background-position;
+}
+
+.shine-text-dark {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.8) 25%,
+    rgba(168, 85, 247, 1) 50%,
+    rgba(139, 92, 246, 0.8) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine-effect 3s ease-in-out infinite;
+  will-change: background-position;
+}
+
+.shine-text-light {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(147, 51, 234, 0.8) 25%,
+    rgba(236, 72, 153, 1) 50%,
+    rgba(147, 51, 234, 0.8) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine-effect 3s ease-in-out infinite;
+  will-change: background-position;
+}
+
+/* Metallic gloss effect for headings */
+@keyframes metallic-shine {
+  0% {
+    background-position: -200% center;
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+  100% {
+    background-position: 200% center;
+    filter: brightness(1);
+  }
+}
+
+.shine-text-metallic {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: metallic-shine 4s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+.shine-text-metallic-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 0.8) 0%,
+    rgba(139, 92, 246, 0.6) 25%,
+    rgba(255, 255, 255, 0.9) 45%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.9) 55%,
+    rgba(139, 92, 246, 0.6) 75%,
+    rgba(168, 85, 247, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: metallic-shine 5s ease-in-out infinite;
+  will-change: background-position, filter;}
+
+.shine-text-metallic-light {
+  background: linear-gradient(
+    90deg,
+    rgba(147, 51, 234, 0.8) 0%,
+    rgba(147, 51, 234, 0.6) 25%,
+    rgba(235, 72, 155, 0.4) 45%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(235, 72, 155, 0.4) 55%,
+    rgba(147, 51, 234, 0.6) 75%,
+    rgba(147, 51, 234, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: metallic-shine-subtle 6s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+/* Special enhanced metallic shine for "Get in Touch" */
+.shine-contact-metallic {
+  background: linear-gradient(
+    90deg,
+    rgba(147, 51, 234, 0.8) 0%,
+    rgba(236, 72, 153, 0.9) 25%,
+    rgba(255, 255, 255, 1) 45%,
+    rgba(255, 255, 255, 1) 55%,
+    rgba(236, 72, 153, 0.9) 75%,
+    rgba(147, 51, 234, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: contact-shine-horizontal 2.5s ease-in-out infinite;
+  will-change: background-position;
+  font-weight: 900;
+}
+
+.shine-contact-metallic-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.8) 0%,
+    rgba(168, 85, 247, 0.9) 25%,
+    rgba(255, 255, 255, 1) 45%,
+    rgba(255, 255, 255, 1) 55%,
+    rgba(168, 85, 247, 0.9) 75%,
+    rgba(139, 92, 246, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: contact-shine-horizontal 2.5s ease-in-out infinite;
+  will-change: background-position;
+  font-weight: 900;
+}
+
+@keyframes contact-shine-horizontal {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Stable animation utilities - no shaking */
+@keyframes float-stable {
+  0%,
+  100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-10px) translateZ(0);
+  }
+}
+
+.animate-float-stable {
+  animation: float-stable 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes glow-stable {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.animate-glow-stable {
+  animation: glow-stable 4s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+@keyframes pulse-stable {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02) translateZ(0);
+  }
+}
+
+.animate-pulse-stable {
+  animation: pulse-stable 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes bounce-stable {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+  40%,
+  43% {
+    transform: translateY(-8px) translateZ(0);
+  }
+}
+
+.animate-bounce-stable {
+  animation: bounce-stable 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Gradient text utilities with stable performance */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  will-change: background-position;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #6366f1 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 5s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive utilities with optimized performance */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  * {
+    animation-duration: 0.8s !important;
+    transition-duration: 0.3s !important;
+  }
+
+  .hero-responsive {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .timeline-responsive {
+    padding-left: 2rem;
+  }
+
+  .timeline-responsive .timeline-line {
+    left: 1rem;
+  }
+
+  .timeline-responsive .timeline-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Enhanced focus states */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  ring: 2px;
+  ring-offset: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, box-shadow;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Loading spinner with stable performance */
+@keyframes spin-stable {
+  from {
+    transform: rotate(0deg) translateZ(0);
+  }
+  to {
+    transform: rotate(360deg) translateZ(0);
+  }
+}
+
+.animate-spin-stable {
+  animation: spin-stable 1s linear infinite;
+  will-change: transform;
+}
+
+/* Card hover effects with stable performance */
+.card-hover-stable {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-hover-stable:hover {
+  transform: translateY(-5px) translateZ(0) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth scroll with momentum for better UX */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better text rendering */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize images */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  will-change: transform;
+}
+
+/* Border lighting effect - stable */
+@keyframes border-glow-stable {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  }
+}
+
+.border-glow-stable {
+  animation: border-glow-stable 4s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+/* Constellation line animation - stable */
+@keyframes constellation-draw-stable {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+  }
+}
+
+.constellation-line-stable {
+  animation: constellation-draw-stable 1.5s ease-in-out forwards;
+  will-change: stroke-dasharray;
+}
+
+/* Planet Styles */
+.planet-light {
+  box-shadow: inset -20px -20px 40px rgba(0, 0, 0, 0.2), inset 20px 20px 40px rgba(255, 255, 255, 0.3);
+}
+
+.planet-dark {
+  box-shadow: inset -20px -20px 40px rgba(0, 0, 0, 0.4), inset 20px 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.planet-clouds {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 50%), 
+              radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
+}
+
+.planet-atmosphere-light {
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+}
+
+.planet-atmosphere-dark {
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+}
+
+.planet-ring {
+  transform: rotate3d(1, 1, 0, 60deg) scale(1.2);
+}
+
+.planet-gradient-ring {
+  background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.3), transparent, rgba(168, 85, 247, 0.3), transparent);
+}

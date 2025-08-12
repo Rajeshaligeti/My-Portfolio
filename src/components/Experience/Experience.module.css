@@ -1,0 +1,434 @@
+.experience {
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.lightTitle {
+  color: #1f2937;
+}
+
+.darkTitle {
+  color: #f9fafb;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+.timelineContainer {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Enhanced Interactive Baseline */
+.baseline {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transform: translateX(-50%);
+  transform-origin: top;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.lightBaseline {
+  background: linear-gradient(180deg, #8b5cf6, #a855f7, #ec4899, #8b5cf6);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.darkBaseline {
+  background: linear-gradient(180deg, #8b5cf6, #a855f7, #ec4899, #8b5cf6);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+}
+
+/* Flowing Particles */
+.flowingParticles {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.lightParticles {
+  background: radial-gradient(circle, #ec4899, #a855f7);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.8);
+}
+
+.darkParticles {
+  background: radial-gradient(circle, #a855f7, #8b5cf6);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.9);
+}
+
+/* Energy Wave */
+.energyWave {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.lightWave {
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+}
+
+.darkWave {
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.5), transparent);
+}
+
+.timelineItems {
+  position: relative;
+  z-index: 3;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.leftItem {
+  justify-content: flex-end;
+  padding-right: 60px;
+}
+
+.rightItem {
+  justify-content: flex-start;
+  padding-left: 60px;
+}
+
+/* Enhanced Interactive Timeline Dot */
+.timelineDot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightDot {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border: 3px solid #ffffff;
+}
+
+.darkDot {
+  background: linear-gradient(135deg, #a855f7, #8b5cf6);
+  border: 3px solid #1f2937;
+}
+
+.dotInnerRing {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border-top-color: transparent;
+}
+
+.companyIcon {
+  font-size: 12px;
+  z-index: 1;
+}
+
+/* Enhanced Experience Card */
+.experienceCard {
+  width: 450px;
+  padding: 32px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.lightCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.darkCard {
+  background: rgba(17, 24, 39, 0.95);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.cardHeader {
+  margin-bottom: 20px;
+}
+
+.jobTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.lightJobTitle {
+  color: #1f2937;
+}
+
+.darkJobTitle {
+  color: #f9fafb;
+}
+
+.jobDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.jobDetail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lightIcon {
+  color: #8b5cf6;
+}
+
+.darkIcon {
+  color: #a855f7;
+}
+
+.grayIcon {
+  color: #6b7280;
+}
+
+.company {
+  font-weight: 600;
+}
+
+.lightCompany {
+  color: #374151;
+}
+
+.darkCompany {
+  color: #d1d5db;
+}
+
+.grayText {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.jobType {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fullTimeLight {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.fullTimeDark {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.internshipLight {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.internshipDark {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.lightDescription {
+  color: #4b5563;
+}
+
+.darkDescription {
+  color: #9ca3af;
+}
+
+.achievementsTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.lightAchievementsTitle {
+  color: #374151;
+}
+
+.darkAchievementsTitle {
+  color: #d1d5db;
+}
+
+.achievementIcon {
+  color: #f59e0b;
+}
+
+.achievementsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.lightAchievement {
+  color: #4b5563;
+}
+
+.darkAchievement {
+  color: #9ca3af;
+}
+
+.achievement:hover {
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.achievementDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lightAchievementDot {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+}
+
+.darkAchievementDot {
+  background: linear-gradient(135deg, #a855f7, #8b5cf6);
+}
+
+.impactIcon {
+  margin-left: auto;
+  color: #10b981;
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timelineContainer {
+    padding: 0 20px;
+  }
+
+  .baseline {
+    left: 30px;
+  }
+
+  .timelineItem {
+    margin-bottom: 60px;
+  }
+
+  .leftItem,
+  .rightItem {
+    justify-content: flex-start;
+    padding-left: 60px;
+    padding-right: 20px;
+  }
+
+  .timelineDot {
+    left: 30px;
+  }
+
+  .experienceCard {
+    width: 100%;
+    max-width: 400px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceCard {
+    padding: 20px;
+  }
+
+  .jobTitle {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

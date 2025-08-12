@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "InsightViz",
+    "description": "Web-based data visualization tool built with Django, Pandas, and Matplotlib. Offers advanced filtering and a user-friendly interface for analysts and students.",
+    "techStack": ["Django", "Pandas", "Matplotlib", "Python", "HTML5", "CSS3"],
+    "github": "https://github.com/Rajeshaligeti/InsightViz",
+    "demo": "https://github.com/Rajeshaligeti/InsightViz",
+    "category": "Backend",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "AudioWave",
+    "description": "Full-stack music streaming application with JWT authentication, React frontend, MongoDB backend, and Spotify API integration.",
+    "techStack": ["React", "MongoDB", "JWT", "Spotify API", "OAuth", "Node.js"],
+    "github": "https://github.com/Rajeshaligeti/AudioWave",
+    "demo": "https://github.com/Rajeshaligeti/AudioWave",
+    "category": "Frontend",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "AI Sentiment Analyzer",
+    "description": "Advanced sentiment analysis web application using Flask, LangChain, and Ollama with batch input support and word cloud visualizations.",
+    "techStack": ["Flask", "LangChain", "Ollama", "Python", "NLP", "Data Visualization"],
+    "github": "https://github.com/Rajeshaligeti/AI_Sentiment_Analyser_using_Flask",
+    "demo": "https://github.com/Rajeshaligeti/AI_Sentiment_Analyser_using_Flask",
+    "category": "AI/ML",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Weather Prediction Model",
+    "description": "Machine learning model using Random Forest algorithm for weather prediction with 99.49% accuracy. Includes comprehensive EDA on historical weather data.",
+    "techStack": ["Python", "Random Forest", "Scikit-Learn", "Pandas", "Matplotlib"],
+    "github": "https://github.com/Rajeshaligeti",
+    "demo": "https://github.com/Rajeshaligeti",
+    "category": "AI/ML",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Cardiovascular Risk Prediction",
+    "description": "Clinical machine learning project using diagnostic analytics for heart disease prediction with advanced data preprocessing and model optimization.",
+    "techStack": ["Python", "Machine Learning", "Healthcare Analytics", "Scikit-Learn"],
+    "github": "https://github.com/Rajeshaligeti/Cardiovascular_Risk_Prediction",
+    "demo": "https://github.com/Rajeshaligeti/Cardiovascular_Risk_Prediction",
+    "category": "AI/ML",
+    "featured": false
+  }
+]

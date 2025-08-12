@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Optimize for smooth animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: auto;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-content {
+  position: relative;
+  z-index: 20;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 0.8), rgba(168, 85, 247, 0.8));
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, rgba(139, 92, 246, 1), rgba(168, 85, 247, 1));
+  background-clip: content-box;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+/* Enhanced metallic shine for main titles only */
+@keyframes premium-metallic-shine {
+  0% {
+    background-position: -150% center;
+    filter: brightness(1) contrast(1);
+  }
+  25% {
+    filter: brightness(1.1) contrast(1.05);
+  }
+  50% {
+    background-position: 150% center;
+    filter: brightness(1.2) contrast(1.1);
+  }
+  75% {
+    filter: brightness(1.1) contrast(1.05);
+  }
+  100% {
+    background-position: -150% center;
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.title-metallic-premium {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(255, 255, 255, 0.9) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.9) 60%,
+    rgba(255, 255, 255, 0.6) 70%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: premium-metallic-shine 8s ease-in-out infinite;
+  will-change: background-position, filter;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.title-metallic-premium-dark {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.2) 20%,
+    rgba(168, 85, 247, 0.6) 30%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(168, 85, 247, 0.6) 70%,
+    rgba(139, 92, 246, 0.2) 80%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: premium-metallic-shine 8s ease-in-out infinite;
+  will-change: background-position, filter;
+  text-shadow: 0 0 25px rgba(139, 92, 246, 0.4), 0 0 50px rgba(139, 92, 246, 0.2);
+}
+
+.title-metallic-premium-light {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(147, 51, 234, 0.2) 20%,
+    rgba(236, 72, 153, 0.6) 30%,
+    rgba(255, 255, 255, 0.8) 40%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(236, 72, 153, 0.6) 70%,
+    rgba(147, 51, 234, 0.2) 80%,
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: premium-metallic-shine 8s ease-in-out infinite;
+  will-change: background-position, filter;
+  text-shadow: 0 0 25px rgba(147, 51, 234, 0.3), 0 0 50px rgba(147, 51, 234, 0.1);
+}
+
+/* Minimal shine for subheadings - much more subtle */
+@keyframes subtle-text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.subtitle-glow {
+  animation: subtle-text-glow 4s ease-in-out infinite;
+  will-change: text-shadow;
+}
+
+.subtitle-glow-dark {
+  animation: subtle-text-glow 4s ease-in-out infinite;
+  will-change: text-shadow;
+}
+
+.subtitle-glow-dark {
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.2);
+}
+
+/* Remove old shine classes */
+.shine-text-metallic,
+.shine-text-metallic-dark,
+.shine-text-metallic-light {
+  /* Remove all shine effects from subheadings */
+  animation: none;
+  background: none;
+  text-shadow: none;
+}
+
+/* Smooth stable animations */
+@keyframes float-smooth {
+  0%,
+  100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(0);
+  }
+}
+
+@keyframes glow-smooth {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.4);
+  }
+}
+
+@keyframes pulse-smooth {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01) translateZ(0);
+  }
+}
+
+.animate-float-smooth {
+  animation: float-smooth 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-glow-smooth {
+  animation: glow-smooth 3s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+.animate-pulse-smooth {
+  animation: pulse-smooth 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Performance optimizations */
+.animate-element {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  * {
+    animation-duration: 0.6s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+/* Enhanced focus states */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions */
+button,
+a,
+input,
+textarea {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity, box-shadow;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-1px) translateZ(0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better text rendering */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

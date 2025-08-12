@@ -1,0 +1,21 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 0.25rem;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(to right, rgb(147, 51, 234), rgb(236, 72, 153), rgb(99, 102, 241));
+}
+
+.lightProgress {
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+}
+
+.darkProgress {
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
