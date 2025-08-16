@@ -12,7 +12,7 @@
 
 **A modern, interactive portfolio showcasing AI/ML engineering expertise with stunning 3D visuals and smooth animations**
 
-[🌐 Live Demo](https://your-portfolio-url.vercel.app) | [📧 Contact](mailto:aligetirajesh782@gmail.com) | [💼 LinkedIn](https://linkedin.com/in/rajesh-aligeti)
+[🌐 Live Demo](https://rajesh-aligeti-portfolio.vercel.app) | [📧 Contact](mailto:aligetirajesh782@gmail.com) | [💼 LinkedIn](https://www.linkedin.com/in/rajesh-aligeti-38a6a227b)
 
 </div>
 
