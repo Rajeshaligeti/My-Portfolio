@@ -15,7 +15,7 @@ const projectsData = [
     techStack: ["Python", "PyTorch"],
     category: "AI/ML",
     github: "https://github.com/Rajeshaligeti/Photorealistic_Style_Transfer",
-    demo: "N/A",
+    demo: "https://photorealisticstyletransfer.streamlit.app",
     featured: true,
   },
   {
@@ -25,7 +25,7 @@ const projectsData = [
     techStack: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     github: "https://github.com/Rajeshaligeti/Editkaro-Streamcast",
-    demo: "N/A",
+    demo: "https://rajeshaligeti.github.io/Editkaro-Streamcast/",
     featured: false,
   },
   {
@@ -55,7 +55,7 @@ const projectsData = [
     techStack: ["JavaScript", "HTML", "CSS"],
     category: "Frontend",
     github: "https://github.com/Rajeshaligeti/To-Do-List",
-    demo: "N/A",
+    demo: "https://rajeshaligeti.github.io/To-Do-List",
     featured: false,
   },
   {
@@ -75,7 +75,7 @@ const projectsData = [
     techStack: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     github: "https://github.com/Rajeshaligeti/Interactive-Recipe-Card",
-    demo: "N/A",
+    demo: "https://rajeshaligeti.github.io/Interactive-Recipe-Card/",
     featured: false,
   },
   {
@@ -95,7 +95,7 @@ const projectsData = [
     techStack: ["HTML", "CSS", "JavaScript", "React"],
     category: "Full-stack",
     github: "https://github.com/Rajeshaligeti/Editkaro.in",
-    demo: "N/A",
+    demo: "https://web-project-xnt2.onrender.com/",
     featured: true
   },
   {
@@ -115,7 +115,7 @@ const projectsData = [
     techStack: ["Java", "Algorithms"],
     category: "Frontend",
     github: "https://github.com/Rajeshaligeti/Promethan-CodeQuest",
-    demo: "N/A",
+    demo: "https://promethean-codequest.netlify.app/",
     featured: false,
   },
   {
