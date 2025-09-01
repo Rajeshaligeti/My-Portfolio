@@ -112,7 +112,7 @@ const projectsData = [
     id: 11,
     title: "Promethan‑CodeQuest",
     description: "Competitive coding entry for university hackathon event.",
-    techStack: ["Java", "Algorithms"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     category: "Frontend",
     github: "https://github.com/Rajeshaligeti/Promethan-CodeQuest",
     demo: "https://promethean-codequest.netlify.app/",
