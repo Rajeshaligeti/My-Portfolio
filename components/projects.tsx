@@ -1,11 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useTheme } from "./theme-provider"
-import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { Github, ExternalLink, Filter } from "lucide-react"
-import { TRACE_OUTPUT_VERSION } from "next/dist/shared/lib/constants"
 
 const projectsData = [
   {
@@ -35,7 +33,7 @@ const projectsData = [
     techStack: ["Django", "Pandas", "Matplotlib"],
     category: "Full-stack",
     github: "https://github.com/Rajeshaligeti/InsightViz",
-    demo: "N/A",
+    demo: "https://insight-viz.vercel.app/",
     featured: true,
   },
   {
@@ -45,7 +43,7 @@ const projectsData = [
     techStack: ["Streamlit", "Python", "LangChain", "Ollama"],
     category: "AI/ML",
     github: "https://github.com/Rajeshaligeti/AI-Sentiment-Analyser",
-    demo: "N/A",
+    demo: "https://ai-sentiment-analyser-using-flask.onrender.com/",
     featured: false,
   },
   {
@@ -65,7 +63,7 @@ const projectsData = [
     techStack: ["Android", "Kotlin"],
     category: "Mobile",
     github: "https://github.com/Rajeshaligeti/AI_ChatBot_App",
-    demo: "N/A",
+    demo: "#",
     featured: false,
   },
   {
@@ -85,7 +83,7 @@ const projectsData = [
     techStack: ["Python", "Flask", "LangChain"],
     category: "AI/ML",
     github: "https://github.com/Rajeshaligeti/AI_Sentiment_Analyser_using_Flask",
-    demo: "N/A",
+    demo: "https://ai-sentiment-analyser-using-flask.onrender.com/",
     featured: true,
   },
   {
@@ -105,7 +103,7 @@ const projectsData = [
     techStack: ["Python", "Scikit‑Learn", "Pandas"],
     category: "AI/ML",
     github: "https://github.com/Rajeshaligeti/Cardiovascular_Risk_Prediction",
-    demo: "N/A",
+    demo: "#",
     featured: true,
   },
   {
@@ -125,7 +123,70 @@ const projectsData = [
     techStack: ["React", "MongoDB", "Spotify API"],
     category: "Full‑Stack",
     github: "https://github.com/Rajeshaligeti/AudioWave",
-    demo: "N/A",
+    demo: "#",
+    featured: true,
+  },
+  {
+    id: 13,
+    title: "HOPE – AI Healthcare Platform",
+    description: "Full-stack AI healthcare platform offering symptom analysis and personalized wellness recommendations.",
+    techStack: ["React", "Node.js", "Express", "MongoDB", "Gemini AI"],
+    highlights: [
+      "Integrated AI-powered symptom analysis using Gemini API",
+      "Developed REST APIs and responsive dashboards",
+      "Delivered real-time health insights and recommendations",
+    ],
+    category: "Full Stack",
+    github: "https://github.com/Rajeshaligeti/HOPE",
+    demo: "https://hope-nine-tau.vercel.app/",
+    featured: true,
+  },
+  {
+    id: 14,
+    title: "VISHWA – AI Space Exploration Platform",
+    description:
+      "An AI-powered platform designed for space exploration and astronomy insights, developed during NASA Space Apps Challenge 2025.",
+    techStack: ["React", "Node.js", "AI", "APIs"],
+    highlights: [
+      "Built intelligent system for exploring space data and astronomy insights",
+      "Integrated AI to assist users with space-related queries and learning",
+      "Achieved Semi-Finalist position in NASA Space Apps Challenge 2025",
+    ],
+    category: "AI Hackathon",
+    github: "https://github.com/Rajeshaligeti/VISHWA",
+    demo: "https://vishwa-astra.vercel.app/",
+    featured: true,
+  },
+  {
+    id: 15,
+    title: "InsureGuru AI",
+    description:
+      "An AI-driven insurance assistant platform that simplifies policy understanding, recommendations, and user decision-making.",
+    techStack: ["AI", "Machine Learning", "Full Stack"],
+    highlights: [
+      "Developed AI-based recommendation system for insurance plans",
+      "Simplified complex insurance data into user-friendly insights",
+      "Designed system to assist users in making informed financial decisions",
+    ],
+    category: "backend",
+    github: "https://github.com/Rajeshaligeti/Insure-guru-ai",
+    demo: "https://insure-guru-ai.lovable.app/",
+    featured: true,
+  },
+  {
+    id: 16,
+    title: "TAXNOVA – AI Tax Assistant",
+    description:
+      "An AI-powered tax assistant platform designed to simplify tax calculations, insights, and financial decision-making.",
+    techStack: ["AI", "Machine Learning", "Full Stack"],
+    highlights: [
+      "Built intelligent system for automated tax calculations and recommendations",
+      "Simplified complex tax rules into user-friendly insights",
+      "Designed for assisting users with financial planning and compliance",
+    ],
+    category: "Frontend",
+    github: "https://github.com/Rajeshaligeti/TAXNOVA",
+    demo: "https://taxnova-rho.vercel.app/",
     featured: true,
   }
 ];
