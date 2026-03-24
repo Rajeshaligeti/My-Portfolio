@@ -1,45 +1,94 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useTheme } from "./theme-provider"
-import { useInView } from "framer-motion"
 import { useRef } from "react"
 
-const skillsData = {
-  "Programming Languages": [
-    { name: "Python", level: 95 },
-    { name: "JavaScript", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "SQL", level: 88 },
-    { name: "HTML/CSS", level: 92 },
-  ],
-  "AI/ML Frameworks": [
-    { name: "PyTorch", level: 90 },
-    { name: "TensorFlow", level: 85 },
-    { name: "Scikit-learn", level: 92 },
-    { name: "Pandas", level: 95 },
-    { name: "NumPy", level: 93 },
-  ],
-  "Backend Technologies": [
-    { name: "Flask", level: 90 },
-    { name: "FastAPI", level: 88 },
-    { name: "Node.js", level: 85 },
-    { name: "Express", level: 82 },
-    { name: "MongoDB", level: 87 },
-  ],
-  "Frontend & Tools": [
-    { name: "React", level: 85 },
-    { name: "Streamlit", level: 90 },
-    { name: "Git", level: 92 },
-    { name: "Docker", level: 80 },
-    { name: "AWS", level: 75 },
-  ],
+type SkillLevel = "Advanced" | "Intermediate" | "Working"
+
+type SkillItem = {
+  name: string
+  level: number
+  mastery: SkillLevel
+}
+
+type SkillCategory = {
+  title: string
+  subtitle: string
+  skills: SkillItem[]
+}
+
+const skillsData: SkillCategory[] = [
+  {
+    title: "Programming Languages",
+    subtitle: "Core languages used across AI, backend, and frontend work",
+    skills: [
+      { name: "Python", level: 95, mastery: "Advanced" },
+      { name: "JavaScript", level: 90, mastery: "Advanced" },
+      { name: "TypeScript", level: 86, mastery: "Intermediate" },
+      { name: "SQL", level: 88, mastery: "Intermediate" },
+      { name: "HTML/CSS", level: 92, mastery: "Advanced" },
+    ],
+  },
+  {
+    title: "AI/ML Stack",
+    subtitle: "Modeling, analytics, and intelligent feature engineering",
+    skills: [
+      { name: "PyTorch", level: 90, mastery: "Advanced" },
+      { name: "TensorFlow", level: 84, mastery: "Intermediate" },
+      { name: "Scikit-learn", level: 92, mastery: "Advanced" },
+      { name: "Pandas", level: 95, mastery: "Advanced" },
+      { name: "NumPy", level: 93, mastery: "Advanced" },
+    ],
+  },
+  {
+    title: "Backend Development",
+    subtitle: "API design, service logic, and data-driven architectures",
+    skills: [
+      { name: "Flask", level: 90, mastery: "Advanced" },
+      { name: "FastAPI", level: 88, mastery: "Intermediate" },
+      { name: "Node.js", level: 86, mastery: "Intermediate" },
+      { name: "Express", level: 84, mastery: "Intermediate" },
+      { name: "MongoDB", level: 87, mastery: "Intermediate" },
+    ],
+  },
+  {
+    title: "Frontend & Product Tools",
+    subtitle: "Interfaces, user experience, and delivery workflows",
+    skills: [
+      { name: "React", level: 87, mastery: "Intermediate" },
+      { name: "Streamlit", level: 90, mastery: "Advanced" },
+      { name: "Git", level: 92, mastery: "Advanced" },
+      { name: "Docker", level: 78, mastery: "Working" },
+      { name: "Cloud Deployment", level: 60, mastery: "Working" },
+    ],
+  },
+]
+
+const additionalTech = [
+  "Jupyter",
+  "Matplotlib",
+  "Seaborn",
+  "OpenCV",
+  "NLTK",
+  "spaCy",
+  "PostgreSQL",
+  "MySQL",
+  "REST APIs",
+  "Bash",
+  "Postman",
+]
+
+const masteryStyles: Record<SkillLevel, string> = {
+  Advanced: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
+  Intermediate: "bg-amber-500/15 text-amber-300 border-amber-500/30",
+  Working: "bg-sky-500/15 text-sky-300 border-sky-500/30",
 }
 
 export default function Skills() {
   const { theme } = useTheme()
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
     <section id="skills" className="py-20 px-4">
@@ -67,10 +116,15 @@ export default function Skills() {
             </span>
           </h2>
 
+          <p className={`text-center max-w-3xl mx-auto mb-12 ${theme === "light" ? "text-gray-600" : "text-gray-300"}`}>
+            A practical skill map focused on building AI products end-to-end. Cloud deployment is currently in progress and
+            intentionally marked as a working area.
+          </p>
+
           <div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
+            {skillsData.map((category, categoryIndex) => (
               <motion.div
-                key={category}
+                key={category.title}
                 className={`backdrop-blur-md rounded-2xl p-6 border transition-all duration-500 ${
                   theme === "light"
                     ? "bg-white/20 border-white/30 shadow-xl"
@@ -82,11 +136,13 @@ export default function Skills() {
                 whileHover={{ scale: 1.02 }}
               >
                 <h3 className={`text-xl font-bold mb-6 ${theme === "light" ? "text-gray-800" : "text-white"}`}>
-                  {category}
+                  {category.title}
                 </h3>
 
+                <p className={`text-sm mb-6 ${theme === "light" ? "text-gray-600" : "text-gray-300"}`}>{category.subtitle}</p>
+
                 <div className="space-y-4">
-                  {skills.map((skill, skillIndex) => (
+                  {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, x: -20 }}
@@ -97,13 +153,28 @@ export default function Skills() {
                         <span className={`font-medium ${theme === "light" ? "text-gray-700" : "text-gray-200"}`}>
                           {skill.name}
                         </span>
-                        <span
-                          className={`text-sm font-semibold ${
-                            theme === "light" ? "text-purple-600" : "text-violet-400"
-                          }`}
-                        >
-                          {skill.level}%
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`text-xs px-2 py-1 rounded-full border ${
+                              theme === "light"
+                                ? skill.mastery === "Advanced"
+                                  ? "bg-emerald-100 text-emerald-700 border-emerald-300"
+                                  : skill.mastery === "Intermediate"
+                                    ? "bg-amber-100 text-amber-700 border-amber-300"
+                                    : "bg-sky-100 text-sky-700 border-sky-300"
+                                : masteryStyles[skill.mastery]
+                            }`}
+                          >
+                            {skill.mastery}
+                          </span>
+                          <span
+                            className={`text-sm font-semibold ${
+                              theme === "light" ? "text-purple-600" : "text-violet-400"
+                            }`}
+                          >
+                            {skill.level}%
+                          </span>
+                        </div>
                       </div>
 
                       <div
@@ -139,19 +210,7 @@ export default function Skills() {
             </h3>
 
             <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "Jupyter",
-                "Matplotlib",
-                "Seaborn",
-                "OpenCV",
-                "NLTK",
-                "spaCy",
-                "PostgreSQL",
-                "MySQL",
-                "REST APIs",
-                "Bash",
-                "Postman",
-              ].map((tech, index) => (
+              {additionalTech.map((tech, index) => (
                 <motion.span
                   key={tech}
                   className={`px-4 py-2 rounded-full font-medium transition-all duration-300 cursor-pointer ${
